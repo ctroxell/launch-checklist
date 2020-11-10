@@ -1,10 +1,3 @@
-//Okay, gotcha. So just from a brief glance at your script file, I noticed that 
-//1) you have no window.addEventListener("load", function(){}), 
-//2) you also have two event listeners for the formSubmit when you only need one, and 
-//3) you don't need an extra function for validation; that can go under your submit listener too.
-//Your fetch request shouldn't be inside the formSubmit listener, only the window load one
-
-
 window.addEventListener("load", function() {
    let formSubmitBtn = document.getElementById("formSubmit");
    
@@ -72,36 +65,3 @@ window.addEventListener("load", function() {
       });
    });
 });
-
-
-
-// formSubmit.addEventListener('click',function(event) {
-//    // text & number validation
-//    if (pilotName.value ==='' || copilotName.value==='' || fuelLevel.value==='' || cargoMass.value==='') {
-//       alert('All field are required!');
-//       event.preventDefault();
-//    } if (isNaN(fuelLevel.value) || isNaN(cargoMass.value)) {
-//       alert('Please enter a valid number');
-//       event.preventDefault();
-//    } 
-//    // updating shuttle requirements
-//    pilotStatus.innerHTML = `Pilot: ${pilotName.value} `;
-//    copilotStatus.innerHTML = `Copilot: ${copilotName.value} `;
-//    if (Number(fuelLevel.value) < 10000) {
-//       faultyItems.style.visibility = 'visible';
-//       fuelStatus.innerHTML = `WARNING! Not enough fuel`;
-//       launchStatus.innerHTML = `Shuttle not ready for launch`;
-//       launchStatus.style.color = 'red';
-//    } if (Number(cargoMass.value) > 10000) {
-//       faultyItems.style.visibility = 'visible';
-//       cargoStatus.innerHTML = `WARNING! Cargo mass too high for launch`;
-//       launchStatus.innerHTML = `Shuttle not ready for launch`;
-//       launchStatus.style.color = 'red';
-//    } if (Number(fuelLevel.value) >= 10000 && Number(cargoMass.value) <= 10000) {
-//       faultyItems.style.visibility = 'visible';
-//       cargoStatus.innerHTML = `Cargo mass low enough for launch`;
-//       launchStatus.innerHTML = `Shuttle ready for launch`;
-//       launchStatus.style.color = 'green';
-//    } event.preventDefault();
-// });   
-
