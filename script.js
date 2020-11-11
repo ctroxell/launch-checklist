@@ -15,14 +15,28 @@ window.addEventListener("load", function() {
       const faultyItems = document.getElementById('faultyItems');
       const launchStatus = document.getElementById('launchStatus');
       const missionTarget = document.getElementById('missionTarget');
+
+      function isNameValid() {
+         let valid = /^[A-Za-z]+$/;
+         if (copilotName.value.match(valid) && pilotName.value.match(valid)) {
+            return true;
+         } else {
+            alert('Please enter a valid name (letters A-Z only)');
+            event.preventDefault();
+            return false;
+         };
+      };
       
       if (pilotName.value ==='' || copilotName.value==='' || fuelLevel.value==='' || cargoMass.value==='') {
          alert('All field are required!');
          event.preventDefault();
-      } if (isNaN(fuelLevel.value) || isNaN(cargoMass.value)) {
+      } 
+      if (isNaN(fuelLevel.value) || isNaN(cargoMass.value)) {
          alert('Please enter a valid number');
          event.preventDefault();
       } 
+      isNameValid();
+      
       // updating shuttle requirements
       pilotStatus.innerHTML = `Pilot: ${pilotName.value} `;
       copilotStatus.innerHTML = `Copilot: ${copilotName.value} `;
